@@ -1,0 +1,116 @@
+---
+import type { MarkdownHeading } from "astro";
+type Props = {
+  headings: MarkdownHeading[];
+};
+type HeadingWithSubheadings = MarkdownHeading & {
+  subheadings: MarkdownHeading[];
+};
+const { headings } = Astro.props;
+const grouppedHeadings = headings.reduce((array, heading) => {
+  if (heading.depth === 2) {
+    array.push({ ...heading, subheadings: [] });
+  } else if (heading.depth === 3) {
+    array.at(-1)?.subheadings.push(heading);
+  }
+  return array;
+}, [] as HeadingWithSubheadings[]);
+---
+
+<nav id="table-of-contents" aria-label="Table Of Contents">
+  <ol>
+    {
+      grouppedHeadings.map((h) => (
+        <li>
+          <a href={`#${h.slug}`}>{h.text}</a>
+          {h.subheadings.length > 0 && (
+            <ol>
+              {h.subheadings.map((sub) => (
+                <li>
+                  <a href={`#${sub.slug}`}>{sub.text}</a>
+                </li>
+              ))}
+            </ol>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+
+  <svg class="toc-progress" xmlns="http://www.w3.org/2000/svg">
+    <path
+      class="toc-marker"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-dasharray="1 0 0 1000"
+      stroke-dashoffset="1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+  </svg>
+
+</nav>
+
+<script is:inline>
+  // This script tag is useful only if you want to display the TOC alongside the blog post...
+  // ... and highlight the section that the user is currently reading through.
+  // Feel free to remove this tag if you don't need this type of functionality.
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const headingFragment = `#${entry.target.id}`;
+        const tocItem = document.querySelector(`a[href="${headingFragment}"]`);
+
+        if (entry.isIntersecting) {
+          const previouslyActivatedItem =
+            document.querySelector(".active-toc-item");
+
+          previouslyActivatedItem?.classList.remove("active-toc-item");
+          tocItem.classList.add("active-toc-item");
+        } else {
+          const isAnyOtherEntryIntersecting = entries.some(
+            (e) => e.target.id !== entry.target.id && e.isIntersecting
+          );
+
+          if (isAnyOtherEntryIntersecting) {
+            tocItem.classList.remove("active-toc-item");
+          }
+        }
+      }
+    },
+    { root: null, rootMargin: "0px", threshold: [1] }
+  );
+
+  const sectionHeadings = document.querySelectorAll(
+    "main > h2, main > h3"
+  );
+
+  for (const heading of sectionHeadings) {
+    console.log(heading)
+    observer.observe(heading);
+  }
+</script>
+
+<style lang="less" is:global>
+  #table-of-contents {
+    @apply min-w-60 h-max;
+    position: sticky;
+    top: 40px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .active-toc-item {
+    color: rgb(79, 84, 175);
+  }
+
+  .toc-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
