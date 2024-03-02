@@ -5,14 +5,27 @@ const blogEntries = await getCollection("packages");
 const obj = {
   title: "Md Saban",
 };
+
+const formattedPublishDate = (inputDate) => {
+  const dateOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  return new Date(inputDate).toLocaleDateString("en-US", dateOptions);
+}
+
 ---
 <Layout postDetails={obj}>
+  <h1 class="text-5xl font-semibold mt-20 mb-10">Latest Post</h1>
+
   {
     blogEntries.map((item) => {
       const slug = `/packages/${item.slug}`
       return (
-      <a href={slug} class="block p-3 border border-stone-400 mb-4">
+      <a href={slug} class="flex justify-between items-center p-3 border-b mb-4">
         <div class="text-2xl">{item.data.title}</div>
+        <div class="text-sm">{formattedPublishDate(item.data.pubDate)}</div>
       </a>
     )})
   }

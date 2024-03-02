@@ -10,13 +10,14 @@ export async function getStaticPaths() {
     params: { slug: post.slug }, 
     props: { 
       post,
+      collection: COLLECTION_NAME
     },
   }));
 }
 
-const { post  } = Astro.props;
+const { post, collection } = Astro.props;
 const { Content, headings } = await post.render();
 ---
-<BlogLayout postDetails={post.data} headings={headings}>
+<BlogLayout postDetails={post.data} collection={collection} headings={headings}>
     <Content />
 </BlogLayout>

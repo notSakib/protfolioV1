@@ -1,20 +1,28 @@
 ---
-const { href, title, body } = Astro.props;
+const { collection } = Astro.props;
 import { ViewTransitions } from 'astro:transitions';
 
 ---
 
-<nav class="mb-6 flex justify-between items-center">
+<nav class="py-6 mb-6 flex justify-between items-center">
 	<div>
-		<a class="text-xl font-medium" href="/">Md Saban</a>
+		<a class="logo text-2xl font-medium" href="/">Md Saban</a>
 	</div>
 	<div>
-		<a href="/packages">Packages</a>
+		{collection && <a class="capitalize" href={'/'+collection}>{collection}</a>}
 	</div>
 </nav>
 
 <!-- <ViewTransitions/> -->
 
 <style>
+	nav {
+		max-width: 1000px;
+		margin: 0 auto;
+		border-bottom: 1px solid #ccc;
+	}
+	.logo {
+		font-family: "Source Serif 4 Variable";
+	}
 
 </style>
