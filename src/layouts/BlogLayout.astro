@@ -10,7 +10,7 @@ import TableOfContents from "@/components/TableOfContents.astro";
 import { Image } from 'astro:assets'
 
 const { postDetails, headings, collection } = Astro.props;
-const { title, pubDate, description, image } = postDetails;
+const { title, pubDate, description, image, noindex } = postDetails;
 
 const formattedPublishDate = (inputDate) => {
   const dateOptions = {
@@ -40,6 +40,7 @@ function getRandomColor() {
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image" href="/favicon.ico" />
     <title>{title}</title>
+    {noindex && <meta name="robots" content="noindex">}
   </head>
   <body style={getRandomColor()}>
     {pubDate && <Header collection={collection} />}

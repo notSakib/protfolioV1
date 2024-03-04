@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/BlogLayout.astro";
-const COLLECTION_NAME = "packages"
+const COLLECTION_NAME = 'posts'
 const blogEntries = await getCollection(COLLECTION_NAME);
 const obj = {
   title: "Md Saban",
