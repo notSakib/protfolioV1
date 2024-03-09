@@ -3,7 +3,7 @@ import "@fontsource-variable/inter";
 import "@fontsource-variable/source-serif-4";
 
 import "../../public/blog.less";
-import myImage from "@/images/placeholder-1.jpeg";
+const defaultImage = "/src/images/placeholder-1.jpeg";
 
 import Header from "@/components/Header.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
@@ -11,6 +11,8 @@ import { Image } from "astro:assets";
 
 const { postDetails, postSlug, headings, collection } = Astro.props;
 const { title, seoTitle, pubDate, description, image, noindex } = postDetails;
+const images = import.meta.glob('/src/images/*.{jpeg,jpg,png,gif}')
+const imageSrc = await images[image?.url || defaultImage]()
 
 const formattedPublishDate = (inputDate) => {
   const dateOptions = {
@@ -53,7 +55,7 @@ function getRandomColor() {
         <>
           <meta property="og:title" content={seoTitle || title} />
           <meta property="og:type" content={pubDate ? "article" : "website"} />
-          <meta property="og:image" content={image.url || myImage.src} />
+          <meta property="og:image" content={imageSrc.default.src} />
           <meta
             property="og:url"
             content={"https://mdsaban.com/" + collection + "/" + postSlug}
@@ -73,7 +75,7 @@ function getRandomColor() {
             </div>
             <h1 class="blog-heading mb-8 text-[64px]">{title}</h1>
             <Image
-              src={image.url || myImage}
+              src={imageSrc.default}
               inferSize
               alt={title}
               class="featured-image"

@@ -24,6 +24,7 @@ const formattedPublishDate = (inputDate) => {
     blogEntries.map((item) => {
       const slug = `/${COLLECTION_NAME}/${item.slug}`
       return (
+        item.slug !== "dummy" &&
       <a href={slug} class="flex justify-between items-center p-3 border-b mb-4">
         <div class="text-2xl">{item.data.title}</div>
         <div class="text-sm">{formattedPublishDate(item.data.pubDate)}</div>
