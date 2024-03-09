@@ -9,6 +9,7 @@ h4{
 }
 .expressive-code {
     @apply my-5;
+    max-width: 90vw;
 }
 
 html {
@@ -36,10 +37,16 @@ article {
     line-height: 1.2;
     letter-spacing: -3px;
     font-weight: 600;
+    @media (max-width:600px) {
+        letter-spacing: -1px;
+    }
 }
 
 .featured-image {
     margin: 16px 0 60px;
+    @media (max-width:600px) {
+        margin-bottom: 16px;
+    }
 }
 
 p {

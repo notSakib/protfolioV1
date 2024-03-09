@@ -64,16 +64,16 @@ function getRandomColor() {
       )
     }
   </head>
-  <body style={getRandomColor()}>
+  <body style={getRandomColor()} class="p-4 sm:p-0">
     {pubDate && <Header collection={collection} />}
     <main>
       {
         pubDate ? (
           <>
-            <div class="mt-20 text-base" style="font-family: monospace;">
+            <div class="md:mt-20 mt-8 text-base" style="font-family: monospace;">
               {formattedPublishDate(new Date(pubDate))}
             </div>
-            <h1 class="blog-heading mb-8 text-[64px]">{title}</h1>
+            <h1 class="blog-heading mb-8 md:text-[64px] text-[32px]">{title}</h1>
             <Image
               src={imageSrc.default}
               inferSize
@@ -84,7 +84,7 @@ function getRandomColor() {
               <article>
                 <slot />
               </article>
-              <aside>
+              <aside class="sm:block hidden">
                 <TableOfContents headings={headings} />
               </aside>
             </section>
