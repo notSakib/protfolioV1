@@ -18,20 +18,20 @@ const grouppedHeadings = headings.reduce((array, heading) => {
 ---
 
 <nav id="table-of-contents" aria-label="Table Of Contents">
-  <div class="uppercase font-semibold mb-4">Table of content</div>
+  <div class="mb-4 font-semibold uppercase">Table of content</div>
   <div>
     {
       grouppedHeadings.map((h) => (
-        <div class="mb-2">
+        <div class="mb-4 leading-tight">
           <a href={`#${h.slug}`}>{h.text}</a>
           {h.subheadings.length > 0 && (
-            <ol>
+            <div class="ml-3 mt-3 leading-tight">
               {h.subheadings.map((sub) => (
-                <li>
+                <div>
                   <a href={`#${sub.slug}`}>{sub.text}</a>
-                </li>
+                </div>
               ))}
-            </ol>
+            </div>
           )}
         </div>
       ))
@@ -71,24 +71,25 @@ const grouppedHeadings = headings.reduce((array, heading) => {
   );
 
   const sectionHeadings = document.querySelectorAll(
-    "main > h2, main > h3"
+    "article > h2, article > h3"
   );
 
   for (const heading of sectionHeadings) {
-    console.log(heading)
     observer.observe(heading);
   }
 </script>
 
 <style lang="less" is:global>
   #table-of-contents {
-    @apply min-w-60 h-max;
+    @apply h-max min-w-60;
     position: sticky;
     top: 40px;
     font-size: 16px;
+    a {
+      line-height: 1.2;
+    }
   }
   .active-toc-item {
-    color: #0047FF;
+    color: #0047ff;
   }
-
 </style>

@@ -3,14 +3,14 @@ import "@fontsource-variable/inter";
 import "@fontsource-variable/source-serif-4";
 
 import "../../public/blog.less";
-import myImage from "@/images/placeholder-1.jpeg"; 
+import myImage from "@/images/placeholder-1.jpeg";
 
 import Header from "@/components/Header.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
 
-const { postDetails, headings, collection } = Astro.props;
-const { title, pubDate, description, image, noindex } = postDetails;
+const { postDetails, postSlug, headings, collection } = Astro.props;
+const { title, seoTitle, pubDate, description, image, noindex } = postDetails;
 
 const formattedPublishDate = (inputDate) => {
   const dateOptions = {
@@ -19,15 +19,15 @@ const formattedPublishDate = (inputDate) => {
     day: "numeric",
   };
   return new Date(inputDate).toLocaleDateString("en-US", dateOptions);
-}
+};
 
 function getRandomColor() {
-  const colors = [ '#fff1e6', '#ecf4f9', '#f8f7ff', '#fbfefb', '#f8f4ff' ]
+  const colors = ["#fff1e6", "#ecf4f9", "#f8f7ff", "#fbfefb", "#f8f4ff"];
   const randomIndex = Math.floor(Math.random() * colors.length);
-  let color = colors[randomIndex]
-  if(!pubDate) color = '#fff'
-  const style = `background-color: ${color};`
-  return style
+  let color = colors[randomIndex];
+  if (!pubDate) color = "#fff";
+  const style = `background-color: ${color};`;
+  return style;
 }
 ---
 
@@ -39,25 +39,54 @@ function getRandomColor() {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image" href="/favicon.ico" />
-    <title>{title}</title>
-    {noindex && <meta name="robots" content="noindex">}
+    <title>{seoTitle || title}</title>
+    {
+      noindex ? (
+        <meta name="robots" content="noindex" />
+      ) : (
+        <meta name="robots" content="index, follow" />
+      )
+    }
+    <!-- OG tags -->
+    {
+      pubDate && (
+        <>
+          <meta property="og:title" content={seoTitle || title} />
+          <meta property="og:type" content={pubDate ? "article" : "website"} />
+          <meta property="og:image" content={image.url || myImage.src} />
+          <meta
+            property="og:url"
+            content={"https://mdsaban.com/" + collection + "/" + postSlug}
+          />
+        </>
+      )
+    }
   </head>
   <body style={getRandomColor()}>
     {pubDate && <Header collection={collection} />}
     <main>
       {
         pubDate ? (
-          <div class="mt-20 text-base" style="font-family: monospace;">{formattedPublishDate(new Date(pubDate))}</div>
-          <h1 class="blog-heading mb-8 text-[64px]">{title}</h1>
-          <Image src={image.url || myImage} inferSize alt={title} class="featured-image" />
-          <section class="blog flex gap-20 mb-20">
-            <article>
-              <slot />
-            </article>
-            <aside>
-              <TableOfContents headings={headings} />
-            </aside>
-          </section>
+          <>
+            <div class="mt-20 text-base" style="font-family: monospace;">
+              {formattedPublishDate(new Date(pubDate))}
+            </div>
+            <h1 class="blog-heading mb-8 text-[64px]">{title}</h1>
+            <Image
+              src={image.url || myImage}
+              inferSize
+              alt={title}
+              class="featured-image"
+            />
+            <section class="blog mb-20 flex gap-20">
+              <article>
+                <slot />
+              </article>
+              <aside>
+                <TableOfContents headings={headings} />
+              </aside>
+            </section>
+          </>
         ) : (
           <slot />
         )
