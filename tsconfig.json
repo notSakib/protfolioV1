@@ -3,10 +3,12 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "allowJs": true,
-    "baseUrl": ".",
+    "baseUrl": "/Users/md.saban/Desktop/work/mdsaban-website",
     "paths": {
-      "@/*": ["src/*"],
-    }
-
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "jsx": "preserve"
   }
 }
