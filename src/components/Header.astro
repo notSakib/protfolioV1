@@ -9,7 +9,7 @@ import { ViewTransitions } from 'astro:transitions';
 		<a class="logo text-2xl font-medium" href="/">Md Saban</a>
 	</div>
 	<div>
-		{collection && <a class="capitalize" href={'/'+collection}>{collection}</a>}
+		{collection ? <a class="capitalize" href={'/'+collection}>{collection}</a> : <a href="/posts">Posts</a>}
 	</div>
 </nav>
 
