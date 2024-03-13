@@ -3,7 +3,7 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "allowJs": true,
-    "baseUrl": "/Users/md.saban/Desktop/work/mdsaban-website",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
