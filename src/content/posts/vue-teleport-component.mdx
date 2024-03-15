@@ -54,21 +54,19 @@ Without Vue Teleport, you would need to manually manage the positioning and rend
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      showModal: false,
-    };
-  },
-  mounted() {
-    // Add event listeners to show/hide modal
-    // Manually position and style the modal
-  },
-  beforeUnmount() {
-    // Remove event listeners
-  },
-};
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
+const showModal = ref(false);
+
+onMounted(() => {
+  // Add event listeners to show/hide modal
+  // Manually position and style the modal
+});
+
+onBeforeUnmount(() => {
+  // Remove event listeners
+});
 </script>
 ```
 
@@ -113,22 +111,20 @@ Alternatively, you can use Vue Teleport programmatically by importing the `creat
     <p>This content is rendered inside the component.</p>
 
     <!-- Render target for the teleported content -->
-    <div id="modal-container"></div>
+    <teleport to="#modal-container">
+      <div class="modal">Modal Content</div>
+    </teleport>
   </div>
 </template>
 
-<script>
+<script setup>
 import { createTeleport } from "vue";
 
-export default {
-  mounted() {
-    const targetElement = document.getElementById("modal-container");
-    const modalComponent = createTeleport(
-      '<div class="modal">Modal Content</div>',
-    );
-    targetElement.appendChild(modalComponent.$el);
-  },
-};
+const targetElement = document.getElementById("modal-container");
+const modalComponent = createTeleport(
+  '<div class="modal">Modal Content</div>',
+);
+targetElement.appendChild(modalComponent.$el);
 </script>
 ```
 
@@ -167,14 +163,10 @@ With Vue Teleport, creating modals becomes much easier. Here's an example:
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      showModal: false,
-    };
-  },
-};
+<script setup>
+  import { ref } from 'vue';
+
+  const showModal = ref(false);
 </script>
 
 <style>
@@ -202,7 +194,7 @@ In this example, we use Vue Teleport to render the modal content as a child of t
 
 We also use some CSS to position the modal in the center of the screen and add a semi-transparent background overlay.
 
-When the "Show Modal" button is clicked, the `showModal` data property is set to `true`, which causes the modal content to be rendered using Vue Teleport. When the "Close" button is clicked, the `showModal` data property is set to `false`, which removes the modal content from the DOM.
+When the "Show Modal" button is clicked, the `showModal` <a href="/posts/vue-ref-vs-reactive">ref data property</a> is set to `true`, which causes the modal content to be rendered using Vue Teleport. When the "Close" button is clicked, the `showModal` data property is set to `false`, which removes the modal content from the DOM.
 
 ## Disabling Teleport
 
@@ -227,14 +219,11 @@ Here's an example:
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      isTeleportDisabled: true
-    }
-  }
-}
+<script setup>
+  import { ref } from 'vue';
+
+  const isTeleportDisabled = ref(true);
+</script>
 ```
 
 In this example, we set the `isTeleportDisabled` data property to true, which causes the `disabled` prop on the `<Teleport>` component to be `true`. As a result, the modal content will be rendered in its original position within the component hierarchy, instead of being teleported to the `<body>` element.
@@ -276,11 +265,6 @@ Here's an example:
   </div>
 </template>
 
-<script>
-export default {
-  // ...
-};
-</script>
 ```
 
 In this example, we have two `<Teleport>` components, both with the `to="body"` prop, which means that their content will be rendered as children of the `<body>` element.
