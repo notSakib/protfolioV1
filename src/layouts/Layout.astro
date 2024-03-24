@@ -1,0 +1,57 @@
+---
+import '@fontsource/uncut-sans/400.css';
+import '@fontsource/uncut-sans/500.css';
+import '@fontsource/uncut-sans/600.css';
+import '@fontsource/uncut-sans/700.css';
+
+const defaultImage = "/src/images/placeholder-1.jpeg";
+
+import Header from "@/components/Header.astro";
+
+const { postDetails, postSlug, headings, collection } = Astro.props;
+const { title, seoTitle, pubDate, description, image, noindex } = postDetails;
+const images = import.meta.glob('/src/images/*.{jpeg,jpg,png,gif}')
+const imageSrc = await images[image?.url || defaultImage]()
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image" href="/favicon.ico" />
+    <title>{seoTitle || title}</title>
+    {
+      noindex ? (
+        <meta name="robots" content="noindex" />
+      ) : (
+        <meta name="robots" content="index, follow" />
+      )
+    }
+    <!-- OG tags -->
+    {
+      pubDate && (
+        <>
+          <meta property="og:title" content={seoTitle || title} />
+          <meta property="og:type" content={pubDate ? "article" : "website"} />
+          <meta property="og:image" content={imageSrc.default.src} />
+          <meta
+            property="og:url"
+            content={"https://mdsaban.com/" + collection + "/" + postSlug}
+          />
+        </>
+      )
+    }
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  html {
+    font-family: 'Uncut Sans', sans-serif;
+  }
+</style>

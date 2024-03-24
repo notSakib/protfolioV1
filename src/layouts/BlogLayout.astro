@@ -1,6 +1,5 @@
 ---
 import "@fontsource-variable/inter";
-import "@fontsource-variable/source-serif-4";
 
 import "../../public/blog.less";
 const defaultImage = "/src/images/placeholder-1.jpeg";
@@ -70,7 +69,7 @@ function getRandomColor() {
       {
         pubDate ? (
           <>
-            <div class="md:mt-20 mt-8 text-base" style="font-family: monospace;">
+            <div class="mt-8 text-base md:mt-20" style="font-family: monospace;">
               {formattedPublishDate(new Date(pubDate))}
             </div>
             <h1 class="blog-heading mb-8 md:text-[64px] text-[32px]">{title}</h1>
@@ -80,11 +79,11 @@ function getRandomColor() {
               alt={title}
               class="featured-image"
             />
-            <section class="blog mb-20 flex gap-20">
+            <section class="flex gap-20 mb-20 blog">
               <article>
                 <slot />
               </article>
-              <aside class="sm:block hidden">
+              <aside class="hidden sm:block">
                 <TableOfContents headings={headings} />
               </aside>
             </section>
