@@ -31,6 +31,16 @@ const obj = {
 			<Tab disabled={true} client:load/>
 		</div>
 
+		<div class="mt-8 mb-4"><b>Change theme color:</b>You can pass <code>themeColor</code> props to change color of your tabs.</div>
+		<div class="border rounded-lg p-4">
+			<Icon themeColor="red" client:load/>
+			<div class="mt-6"></div>
+			<Icon themeColor="black" client:load/>
+			<div class="mt-6"></div>
+			<Icon themeColor=" rgb(168 85 247)" client:load/>
+		</div>
+
+
 		<div class="mt-8 mb-4"><b>Slide:</b> In order to fit in more tabs, they can slide left and right.</div>
 		<div class="border rounded-lg p-4">
 			<Slide client:load/>

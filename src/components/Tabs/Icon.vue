@@ -1,9 +1,15 @@
 <script setup>
 import { Tabs, Tab } from 'super-vue3-tabs';
+
+const props = defineProps({
+    themeColor: {
+        type: String,
+    }
+});
 </script>
 
 <template>
-  <Tabs>
+  <Tabs :themeColor="themeColor">
     <Tab value="Tab 1">
         <template #icon>
             <svg class="w-5 mr-1 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="8"/><circle cx="12" cy="10" r="3"/><path d="M7 22h10"/><path d="M12 22v-4"/></svg>
