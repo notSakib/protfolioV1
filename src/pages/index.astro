@@ -16,6 +16,8 @@ import panya from "@/images/homepage/panya.png";
 import xcreen from "@/images/homepage/xcreen.png";
 import webManagr from "@/images/homepage/webmanagr.png";
 
+import reviews from "@/images/homepage/reviews.png";
+
 import oss from "@/images/homepage/oss.png";
 import tabs from "@/images/homepage/tabs-component.png";
 import chatComponent from "@/images/homepage/chat-component.png";
@@ -140,7 +142,7 @@ const ossSection = [
                   src={wiseLogo}
                   inferSize
                   alt="wise logo"
-                  class="md:h-[30px] h-[20px] md:mt-2 mt-1 w-full"
+                  class="md:h-[30px] h-[20px] md:mt-2 mt-1 w-fit"
                 />
               </div>
               <div class="items-center hidden md:flex">
@@ -148,7 +150,7 @@ const ossSection = [
                   src={serverAvatar}
                   inferSize
                   alt="server avatar logo"
-                  class="md:h-[35px] w-full"
+                  class="md:h-[35px] w-fit"
                 />
                 <div class="ml-2 text-2xl font-bold">ServerAvatar</div>
               </div>
@@ -157,7 +159,7 @@ const ossSection = [
                   src={atlanLogo}
                   inferSize
                   alt="wise logo"
-                  class="md:h-[35px] h-[22px] md:-mt-1 w-full"
+                  class="md:h-[35px] h-[22px] md:-mt-1 w-fit"
                 />
               </div>
               <div>
@@ -165,7 +167,7 @@ const ossSection = [
                   src={dukaan}
                   inferSize
                   alt="atlan logo"
-                  class="md:h-[35px] h-[22px] w-full"
+                  class="md:h-[35px] h-[22px] w-fit"
                 />
               </div>
             </div>
@@ -190,7 +192,7 @@ const ossSection = [
             return (
               <div>
                 <a
-                  class="relative group"
+                  class="block relative group"
                   href={item.website ?? '#' }
                   target="_blank"
                 >
@@ -293,9 +295,42 @@ const ossSection = [
         })
       }
     </section>
-
+    
     <div class="border"></div>
+<!--   
+    <section class="py-20 max-w-[960px] md:px-0 px-8">
+      <Image
+        src={reviews}
+        inferSize
+        alt="Projects"
+        class="mx-auto mb-6 section-img"
+      />
+      <h2 class="text-5xl font-semibold leading-snug text-center">
+        What people say about me
+      </h2>
 
+      <div class="grid md:grid-cols-[1fr_1fr] md:gap-16 gap-4 mt-20">
+
+        <div class="rounded-lg p-4 bg-gray-200">
+          <p>
+            Saban is a highly skilled frontend developer with a team-first attitude. His commitment to delivering exceptional work and collaborating seamlessly made him an invaluable asset. 
+          </p>
+          <p class="mt-2">
+            Working with Saban was an absolute pleasure, and his contributions were instrumental to the project's success.
+          </p>
+          <div class="text-lg font-semibold mt-2 text-right">Sumit Kumar</div>
+        </div>
+
+        <div class="rounded-lg p-4 bg-gray-200 h-max">
+          <p>
+            Saban is a highly skilled frontend developer with a team-first attitude. His commitment to delivering exceptional work and collaborating seamlessly made him an invaluable asset. 
+          </p>
+          <div class="text-lg font-semibold mt-2 text-right">Random John</div>
+        </div>
+
+      </div>
+    </section> -->
+    
     <section
       class="py-20 max-w-[960px] flex md:flex-row flex-col justify-between md:px-0 px-8"
     >
@@ -418,5 +453,6 @@ const ossSection = [
   .section-img {
     width: 148px;
     mix-blend-mode: multiply;
+    transform: translate3d(0,0,0);
   }
 </style>
