@@ -1,0 +1,269 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { Image } from "astro:assets";
+
+//videos
+import sabanVideo from "@/images/about/saban-video.mp4";
+import sabanRunning from "@/images/about/saban-running.mp4";
+
+// images
+import heroImg from "@/images/about/hero.jpeg";
+import sabanSkating from "@/images/about/saban-skating.jpeg";
+import sabanPool from "@/images/about/saban-pool.jpeg";
+import sabanfoosball from "@/images/about/saban-foosball.jpeg";
+import sabanTabletennis from "@/images/about/saban-tabletennis.jpeg";
+import sabanSwimming from "@/images/about/saban-swimming.jpeg";
+import workspaceSetup from "@/images/about/setup.jpeg";
+import paragliding from "@/images/about/paragliding.jpeg";
+import goaSaban from "@/images/about/goa-saban.jpeg";
+import sushi from "@/images/about/sushi.jpeg";
+import sabanBike from "@/images/about/saban-bike.jpeg";
+import sabanMountain from "@/images/about/saban-mountain.jpeg";
+import sabanWallClimbing from "@/images/about/saban-wall-climbing.jpeg";
+import waterSport from "@/images/about/water-sport.jpeg";
+import baking from "@/images/about/baking.jpeg";
+import location from "@/images/about/location.png";
+
+// svgs
+const linkedInIcon = `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="10" fill="#006699"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M14.7344 29V15.5053H10.249V29H14.7344ZM12.4917 13.6629C14.0558 13.6629 15.0294 12.6266 15.0294 11.3316C15.0002 10.0075 14.0558 9 12.5214 9C10.9871 9 9.98389 10.0075 9.98389 11.3316C9.98389 12.6266 10.9572 13.6629 12.4625 13.6629H12.4916H12.4917Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M17.2163 29H21.7016V21.464C21.7016 21.0607 21.7308 20.6578 21.8492 20.3695C22.1735 19.5636 22.9115 18.7291 24.1506 18.7291C25.7736 18.7291 26.4229 19.9666 26.4229 21.7807V29H30.9078V21.2624C30.9078 17.1174 28.695 15.1887 25.744 15.1887C23.3243 15.1887 22.262 16.5412 21.6718 17.4624H21.7017V15.5053H17.2164C17.2753 16.7716 17.2164 29 17.2164 29H17.2163Z" fill="white"></path></svg>`
+const githubIcon = `<svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" style="color:white;fill: currentColor;">
+    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+</svg>`
+
+const obj = {
+  title: "Md Saban",
+  descritipon: "I'm a web developer based out of Bengaluru, India, seamlessly blending my love for aesthetics with my knack for problem-solving.",
+};
+
+---
+
+<Layout postDetails={obj}>
+    <main>
+        <section class="max-w-[1200px] md:px-0 px-8">
+            <Header width={1200} />
+        </section>
+        <section class="max-w-[1000px] md:px-0 px-8 py-20">
+            <div class="flex flex-col md:flex-row justify-between gap-8">
+                <div class="md:w-2/5 w-full">
+                    <Image src={heroImg} alt="hero image" class="w-full rounded-xl" />
+                </div>
+                <div class="md:w-3/5 w-full md:pl-8">
+                    <h1 class="text-4xl font-bold">What I'm bout.</h1>
+                    <h4 class="mt-4 font-semibold text-sm text-gray-500">WHERE I'M FROM</h4>
+                    <p class="text-lg mt-1">
+                        Hi, thanks for stopping by. I'm a full-stack designer who has worked on all parts of the UX process, from identifying problems and conducting research to crafting visually pleasing interfaces. I'm fussy about details and get excited about in-depth research and brainstorming solutions.
+                    </p>
+                    <h4 class="mt-4 font-semibold text-sm text-gray-500">WHAT I USED TO DO</h4>
+                    <p class="text-lg mt-1">
+                        Hi, thanks for stopping by. I'm a full-stack designer who has worked on all parts of the UX process, from identifying problems and conducting research to crafting visually pleasing interfaces. 
+                    </p>
+                    <h4 class="mt-4 font-semibold text-sm text-gray-500">WHAT I DO NOW</h4>
+                    <p class="text-lg mt-1">
+                        Hi, thanks for stopping by. I'm a full-stack designer who has worked on all parts of the UX process, from identifying problems and conducting research
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="max-w-[1000px] md:px-0 px-8 pt-20 pb-10 flex gap-4">
+            <div class="w-2/4"> 
+                <h3 class="text-4xl font-bold mb-4">Where can you find me?</h3>
+                <p class="text-lg max-w-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, a impedit veritatis laudantium velit corporis architecto magnam repellendus voluptate</p>
+            </div>
+            <div class="w-1/4 gap-4">
+                <div class="relative rounded-xl">
+                    <Image src={location} alt="googlemap" class="rounded-xl w-full" />
+                    <div class="pulsating-circle"></div>
+                </div>
+                
+                <div class="bg-black text-white p-8 rounded-xl h-max mt-4"> 
+                    <div class="mb-4">
+                        <div class="flex items-center">
+                            <div set:html={githubIcon} class="color-white"></div>
+                            <div class="ml-4">
+                                <div class="text-lg leading-none font-semibold">Saban</div>
+                                <div class="text-sm">@mdsaban</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-200 p-8 rounded-xl h-max mt-4 ml-auto"> 
+                    <div class="mb-4">
+                        <div class="flex items-center">
+                            <div set:html={linkedInIcon} class="color-white w-8"></div>
+                            <div class="ml-4">
+                                <div class="text-lg leading-none font-semibold">Saban</div>
+                                <div class="text-sm">@mdsaban</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/4 gap-4">
+
+                <div class="bg-gray-200 p-8 rounded-xl h-max"> 
+                    <div class="flex justify-between mb-4">
+                        <div class="flex items-center">
+                            <Image src='https://pbs.twimg.com/profile_images/1584430322829381633/WONnrPV6_400x400.jpg' alt="profile" inferSize class="rounded-full h-full w-10" />
+                            <div class="ml-4">
+                                <div class="text-lg leading-none font-semibold">Saban</div>
+                                <div class="text-sm">@iamsaban</div>
+                            </div>
+                        </div>
+                        <Image src="https://abs.twimg.com/favicons/twitter.3.ico" inferSize alt="twitter" class="h-full rounded-lg border-4 border-black"/>
+                    </div>
+                    <div class="mb-6 text-xl">Some random tweet that I posted here and few likes and comments all? SO let's go with this</div>
+                    <div class="rounded-full border-gray-300 border text-center font-semibold text-sm py-2">FOLLOW</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-[1000px] md:px-0 px-8 py-20">
+            <div class="text-lg font-semibold">When I'm not coding</div>
+            <h3 class="text-4xl font-bold mb-8">I shoot, create & edit</h3>
+            <div class="flex flex-wrap gap-6">
+                <div>
+                    <video src={sabanVideo} autoplay muted loop class="h-[320px] rounded-xl"></video>
+                </div>
+                <div>
+                    <Image src={workspaceSetup} alt="hero image" class="w-[250px] rounded-xl" />
+                </div>
+            </div>
+        </section>
+        <section class="max-w-[1000px] md:px-0 px-8 py-20">
+            <div class="text-lg font-semibold">When I'm not on screen</div>
+            <h3 class="text-4xl font-bold mb-4">I challenge my physical health</h3>
+            <p class="text-lg max-w-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, a impedit veritatis laudantium velit corporis architecto magnam repellendus voluptate suscipit sit eos ipsum vitae ut nesciunt, sunt, itaque beatae porro!</p>
+            <div class="md:columns-3 gap-4 mt-8">
+                <Image src={sabanSkating} alt="hero image" class="rounded-xl mb-4" />
+                <video src={sabanRunning} autoplay muted loop class="rounded-xl mb-4 w-full object-cover object-center h-[500px]" />
+                <Image src={sabanSwimming} alt="hero image" class="rounded-xl mb-4" />
+                <div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="9743357836" data-style="standard"></div>
+                <Image src={sabanfoosball} alt="hero image" class="rounded-xl mb-4" />
+                <Image src={sabanPool} alt="hero image" class="rounded-xl mb-4" />
+                <Image src={sabanTabletennis} alt="hero image" class="rounded-xl mb-4" />
+            </div>
+        </section>
+        
+        <section class="max-w-[1000px] md:px-0 px-8 py-20">
+            <div class="text-lg font-semibold">Outisde work</div>
+            <h3 class="text-4xl font-bold mb-4">All about food, adventure & travel </h3>
+            <p class="text-lg max-w-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, a impedit veritatis laudantium velit corporis architecto magnam repellendus voluptate suscipit sit eos ipsum vitae ut nesciunt, sunt, itaque beatae porro!</p>
+            <div class="md:columns-4 columns-2 gap-4 mt-8">
+                <Image src={sabanWallClimbing} alt="hero image" class="rounded-xl mb-4" />
+                <Image src={sabanBike} alt="hero image" class="rounded-xl mb-4" />
+                <Image src={waterSport} alt="hero image" class="rounded-xl mb-4" />
+                <Image src={sushi} alt="hero image" class="rounded-xl mb-4" />
+                <Image src={goaSaban} alt="hero image" class="rounded-xl mb-4" />
+                <Image src={paragliding} alt="hero image" class="rounded-xl mb-4" />
+                <Image src={sabanMountain} alt="hero image" class="rounded-xl mb-4" />
+                <Image src={baking} alt="hero image" class="rounded-xl mb-4" />
+            </div>
+        </section>
+    </main>
+    <Footer/>
+</Layout>
+
+<!-- strava iframe -->
+<script is:inline>
+   !(function () { try { var e = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : {}, t = new Error().stack; t && ((e._sentryDebugIds = e._sentryDebugIds || {}), (e._sentryDebugIds[t] = "a4227419-e663-45be-bdf2-458d4fb13dc3"), (e._sentryDebugIdIdentifier = "sentry-dbid-a4227419-e663-45be-bdf2-458d4fb13dc3")); } catch (e) {} })(); var _global = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : {}; (_global.SENTRY_RELEASE = { id: "ddf2cdc7ea6bad2c10b17ab5146c1ce66171e126" }), (() => { "use strict"; function e(e, t) { (null == t || t > e.length) && (t = e.length); for (var n = 0, r = new Array(t); n < t; n++) r[n] = e[n]; return r; } const t = function (t) { var n = t.prefix, r = t.inbox, o = t.outbox, a = (function () { try { return new EventTarget(); } catch (e) { return document.createDocumentFragment(); } })(); return ( r.addEventListener("message", function (t) { if ( (function (e) { var t; return ( (null === (t = e.data) || void 0 === t ? void 0 : t[0]) === n ); })(t) ) { var r = ((l = t.data), (d = 3), (function (e) { if (Array.isArray(e)) return e; })(l) || (function (e, t) { var n = null == e ? null : ("undefined" != typeof Symbol && e[Symbol.iterator]) || e["@@iterator"]; if (null != n) { var r, o, a = [], i = !0, c = !1; try { for ( n = n.call(e); !(i = (r = n.next()).done) && (a.push(r.value), !t || a.length !== t); i = !0 ); } catch (e) { (c = !0), (o = e); } finally { try { i || null == n.return || n.return(); } finally { if (c) throw o; } } return a; } })(l, d) || (function (t, n) { if (t) { if ("string" == typeof t) return e(t, n); var r = Object.prototype.toString.call(t).slice(8, -1); return ( "Object" === r && t.constructor && (r = t.constructor.name), "Map" === r || "Set" === r ? Array.from(r) : "Arguments" === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r) ? e(t, n) : void 0 ); } })(l, d) || (function () { throw new TypeError( "Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method." ); })()), o = r[1], i = r[2], c = new Event(o); (c.args = i), a.dispatchEvent(c); } var l, d; }), { addMessageListener: a.addEventListener.bind(a), removeMessageListener: a.removeEventListener.bind(a), sendMessage: function (e) { var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}; o.postMessage([n, e, t], "*"); }, } ); }; function n(e, t) { (null == t || t > e.length) && (t = e.length); for (var n = 0, r = new Array(t); n < t; n++) r[n] = e[n]; return r; } var r, o = function (e) { var t, r = ((t = e), Object.fromEntries( Object.entries(t).filter(function (e) { return ( null != ((t = e), (r = 2), (function (e) { if (Array.isArray(e)) return e; })(t) || (function (e, t) { var n = null == e ? null : ("undefined" != typeof Symbol && e[Symbol.iterator]) || e["@@iterator"]; if (null != n) { var r, o, a = [], i = !0, c = !1; try { for ( n = n.call(e); !(i = (r = n.next()).done) && (a.push(r.value), !t || a.length !== t); i = !0 ); } catch (e) { (c = !0), (o = e); } finally { try { i || null == n.return || n.return(); } finally { if (c) throw o; } } return a; } })(t, r) || (function (e, t) { if (e) { if ("string" == typeof e) return n(e, t); var r = Object.prototype.toString.call(e).slice(8, -1); return ( "Object" === r && e.constructor && (r = e.constructor.name), "Map" === r || "Set" === r ? Array.from(r) : "Arguments" === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r) ? n(e, t) : void 0 ); } })(t, r) || (function () { throw new TypeError( "Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method." ); })())[1] ); var t, r; }) )); return r && Object.keys(r).length >= 1 ? "?".concat(new URLSearchParams(r)) : ""; }; window.__STRAVA_EMBED_BOOTSTRAP__ || ((r = function () { var e = ["route"]; document .querySelectorAll(".strava-embed-placeholder") .forEach(function (n) { var r, a, i = n.dataset, c = i.embedType, l = i.embedId, d = i.mapHash, u = (function (e, t) { if (null == e) return {}; var n, r, o = (function (e, t) { if (null == e) return {}; var n, r, o = {}, a = Object.keys(e); for (r = 0; r < a.length; r++) (n = a[r]), t.indexOf(n) >= 0 || (o[n] = e[n]); return o; })(e, t); if (Object.getOwnPropertySymbols) { var a = Object.getOwnPropertySymbols(e); for (r = 0; r < a.length; r++) (n = a[r]), t.indexOf(n) >= 0 || (Object.prototype.propertyIsEnumerable.call(e, n) && (o[n] = e[n])); } return o; })(i, ["embedType", "embedId", "mapHash"]), s = document.createElement("iframe"); s.setAttribute("frameborder", 0); var f = "true" === u.fullWidth && e.includes(c), b = "\n        ".concat( f ? "width: 100%;" : "width: 554px;", "\n  min-width: 250px;\n max-width: 100%;\n height: 650px;\n  display: block;\n border:1px solid #eaeaf0;\n border-radius: 12px;\n margin-bottom: 16px; \n" ); s.setAttribute("style", b); var y = o(u), m = (null === (a = window.crypto) || void 0 === a || null === (r = a.randomUUID) || void 0 === r ? void 0 : r.call(a)) || (Math.random() + 1).toString(36).substring(2), v = new URLSearchParams({ ns: m, hostOrigin: window.location.origin, hostPath: window.location.pathname, hostTitle: document.title, }), h = d ? "&mapHash=".concat(d) : "", p = "" .concat("https://strava-embeds.com", "/") .concat(c, "/") .concat(l) .concat(y, "#") .concat(v) .concat(h); s.setAttribute("src", p), n.replaceWith(s); var w = t({ prefix: m, inbox: window, outbox: s.contentWindow }); w.addMessageListener("BROADCAST_IFRAME_HEIGHT", function (e) { var t = e.args; s.style.height = "".concat(t, "px"); }), window.__STRAVA_EMBED_SETTINGS_CHANGE_LISTENER__ && w.addMessageListener("BROADCAST_SETTINGS_CHANGE", function (e) { var t = e.args; window.__STRAVA_EMBED_SETTINGS_CHANGE_LISTENER__(t); }), window.addEventListener("focus", function () { w.sendMessage("BROADCAST_HOST_FOCUS"); }); }); }), (window.__STRAVA_EMBED_BOOTSTRAP__ = r)), window.__STRAVA_EMBED_BOOTSTRAP__(); })();
+</script>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+    const footerSectionAnim = {
+      from: {
+        transform: 'scale(1)',
+        borderRadius: '0',
+      },
+      to: {
+        ease: 'power2.out',
+        transform: 'scale(0.9)',
+        borderRadius: '0 0 40px 40px',
+        scrollTrigger: {
+          trigger: "footer",
+          scrub: 0.5,
+        //   markers:true,
+        },
+      },
+  };
+  
+    document.addEventListener("DOMContentLoaded", (event) => {
+      gsap.registerPlugin(ScrollTrigger)
+      gsap.fromTo(document.querySelector('main'), footerSectionAnim.from, footerSectionAnim.to);
+    });
+   
+</script>
+
+<style lang="scss">
+    body {
+        overscroll-behavior: none;
+        background-color: #000;
+    }
+    main {
+        background-color: #fff;
+    }
+    section {
+        margin: 0 auto;
+    }
+
+    .pulsating-circle {
+        position: absolute;
+        left: 40%;
+        top: 40%;
+        width: 30px;
+        height: 30px;
+        
+        &:before {
+            content: '';
+            position: relative;
+            display: block;
+            width: 300%;
+            height: 300%;
+            box-sizing: border-box;
+            margin-left: -100%;
+            margin-top: -100%;
+            border-radius: 45px;
+            background-color: #01a4e9;
+            animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0; 
+            top: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(31, 169, 248);
+            border-radius: 15px;
+            box-shadow: 0 0 8px rgba(0,0,0,.3);
+            animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -.4s infinite;
+        }
+    }
+
+    @keyframes pulse-ring {
+        0% {
+            transform: scale(.33);
+        }
+        80%, 100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes pulse-dot {
+        0% {
+            transform: scale(.8);
+        }
+        50% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(.8);
+        }
+    }
+</style>

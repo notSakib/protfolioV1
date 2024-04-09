@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import { Image } from "astro:assets";
+import Footer from "@/components/Footer.astro";
 
 // images
 import heroImg from "@/images/homepage/hero.png";
@@ -238,7 +239,6 @@ const ossSection = [
       </div>
     </section>
 
-    <div class="border"></div>
 
     <section class="py-20 max-w-[960px] md:px-0 px-8">
       <Image
@@ -296,7 +296,6 @@ const ossSection = [
       }
     </section>
     
-    <div class="border"></div>
 <!--   
     <section class="py-20 max-w-[960px] md:px-0 px-8">
       <Image
@@ -332,7 +331,7 @@ const ossSection = [
     </section> -->
     
     <section
-      class="py-20 max-w-[960px] flex md:flex-row flex-col justify-between md:px-0 px-8"
+      class="blogs py-20 max-w-[960px] flex md:flex-row flex-col justify-between md:px-0 px-8"
     >
       <div class="flex flex-col-reverse items-center md:w-1/3 md:block">
         <h2 class="text-5xl font-semibold leading-snug">My Blogs</h2>
@@ -361,13 +360,47 @@ const ossSection = [
         }
       </div>
     </section>
-
   </main>
+  <Footer/>
 </Layout>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+  const footerSectionAnim = {
+    from: {
+      transform: 'scale(1)',
+      borderRadius: '0',
+    },
+    to: {
+      ease: 'power2.out',
+      transform: 'scale(0.9)',
+      borderRadius: '0 0 40px 40px',
+      scrollTrigger: {
+        trigger: "footer",
+        scrub: 0.5,
+        // markers:true,
+      },
+    },
+};
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+    gsap.registerPlugin(ScrollTrigger)
+    gsap.fromTo(document.querySelector('main'), footerSectionAnim.from, footerSectionAnim.to);
+  });
+ 
+ </script>
+ 
+ 
 
 <style>
   body {
     overscroll-behavior: none;
+    background-color: #000;
+  }
+  main {
+    background-color: #fff;
   }
   section {
     margin: 0 auto;
