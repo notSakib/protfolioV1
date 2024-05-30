@@ -1,5 +1,8 @@
 ---
 import Layout from "@/layouts/BlogLayout.astro";
+
+import githubBoostVideo from "@/videos/github-boost.webm";
+
 const obj = {
   title: "Privacy Policy | Github Boost",
 };
@@ -12,6 +15,9 @@ const obj = {
       Simplify your GitHub code reviews! <br /> Track reviewed files, manage your
       review progress, and enhance your productivity with intuitive features like
       auto-viewing files and collapsing all files with a single click.
+    </div>
+    <div class="bg-gradient-to-r from-sky-500 to-indigo-500 py-10 px-6 rounded-md mt-6">
+      <video src={githubBoostVideo} autoplay controls muted class="rounded-xl"></video>
     </div>
   </main>
 </Layout>
