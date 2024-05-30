@@ -21,6 +21,7 @@ import lens from "@/images/homepage/lens.jpeg";
 import reviews from "@/images/homepage/reviews.png";
 
 import oss from "@/images/homepage/oss.png";
+import github from "@/images/homepage/github-plugin.jpeg";
 import tabs from "@/images/homepage/tabs-component.png";
 import chatComponent from "@/images/homepage/chat-component.png";
 
@@ -87,6 +88,17 @@ const projects = [
 ];
 
 const ossSection = [
+{
+    img: github,
+    alt: "Github review plugin",
+    title: "Github Review Extension",
+    desc: "Simplify your GitHub code reviews! <br/> Track reviewed files, manage your review progress, and enhance your productivity with intuitive features like auto-viewing files and collapsing all files with a single click.",
+    tags: ["Browser extension"],
+    demo: "/packages/github-boost/",
+    github: "https://github.com/mdsaban/github-boost",
+    isPublished: true,
+    primaryBtnText: 'Docs'
+  },
   {
     img: tabs,
     alt: "Tabs component",
@@ -268,7 +280,7 @@ const ossSection = [
               </div>
               <div>
                 <h3 class="mb-5 text-2xl font-medium">{item.title}</h3>
-                <p class="mb-5 text-xl">{item.desc}</p>
+                <p class="mb-5 text-xl" set:html={item.desc}></p>
                 {item.isPublished ? (
                   <div class="flex gap-4">
                     <a
@@ -276,7 +288,7 @@ const ossSection = [
                       href={item.demo}
                     >
                       <div set:html={demoIcon} />
-                      <div class="ml-2">Demo</div>
+                      <div class="ml-2">{item.primaryBtnText || 'Demo'}</div>
                     </a>
                     <a
                       class="flex py-3 text-lg text-white bg-black border items center rounded-xl px-7 w-max"
