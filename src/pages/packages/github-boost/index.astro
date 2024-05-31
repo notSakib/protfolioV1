@@ -1,23 +1,262 @@
 ---
-import Layout from "@/layouts/BlogLayout.astro";
+import Layout from '@/layouts/Layout.astro'
+import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
+import '@fontsource-variable/inter'
+import { Image } from 'astro:assets'
 
-import githubBoostVideo from "@/videos/github-boost.webm";
+import githubBoostVideo from '@/videos/github-boost.webm'
+import dimFiles from '@/images/github-boost/dim-github-reviewed-files.png'
+import remainingLines from '@/images/github-boost/remaining-github-lines-review.png'
+import regex from '@/images/github-boost/regex.png'
 
 const obj = {
-  title: "Privacy Policy | Github Boost",
-};
+  title: 'Privacy Policy | Github Boost',
+}
 ---
 
 <Layout postDetails={obj}>
-  <main class="py-10">
-    <h1 class="text-2xl font-semibold">Github Boost | PR Review helper</h1>
-    <div class="mt-4">
-      Simplify your GitHub code reviews! <br /> Track reviewed files, manage your
-      review progress, and enhance your productivity with intuitive features like
-      auto-viewing files and collapsing all files with a single click.
-    </div>
-    <div class="bg-gradient-to-r from-sky-500 to-indigo-500 py-10 px-6 rounded-md mt-6">
-      <video src={githubBoostVideo} autoplay controls muted class="rounded-xl"></video>
-    </div>
+  <main class='pb-16'>
+    <section class='max-w-[900px] md:px-0 px-8'>
+      <Header width={900} />
+    </section>
+    <section class='max-w-[900px] pt-8 md:px-0 px-8'>
+      <h1 class='text-2xl font-semibold'>Github Boost | PR Review helper</h1>
+      <div class='text-gray-600'>Simplify your GitHub code reviews!</div>
+      <div class='mt-4'>
+        Track reviewed files, manage your review progress, and enhance your productivity with
+        intuitive features like auto-viewing files and collapsing all files with a single click.
+      </div>
+
+      <div class='flex flex-col gap-4 mt-4 md:flex-row'>
+        <a
+          class='flex items-center px-8 py-3 bg-gray-100 border text-black rounded-lg justify-center md:justify-normal'
+          href='https://chromewebstore.google.com/detail/github-boost/ikdkmmfggehlkilbeddlhkjpbangjhii?hl=en&authuser=0'
+          target='_blank'
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            xmlns:xlink='http://www.w3.org/1999/xlink'
+            viewBox='0 0 48 48'
+            height='28'
+            width='28'
+            class='mr-2'
+            ><defs
+              ><linearGradient
+                id='a'
+                x1='3.2173'
+                y1='15'
+                x2='44.7812'
+                y2='15'
+                gradientUnits='userSpaceOnUse'
+                ><stop offset='0' stop-color='#d93025'></stop><stop offset='1' stop-color='#ea4335'
+                ></stop></linearGradient
+              ><linearGradient
+                id='b'
+                x1='20.7219'
+                y1='47.6791'
+                x2='41.5039'
+                y2='11.6837'
+                gradientUnits='userSpaceOnUse'
+                ><stop offset='0' stop-color='#fcc934'></stop><stop offset='1' stop-color='#fbbc04'
+                ></stop></linearGradient
+              ><linearGradient
+                id='c'
+                x1='26.5981'
+                y1='46.5015'
+                x2='5.8161'
+                y2='10.506'
+                gradientUnits='userSpaceOnUse'
+                ><stop offset='0' stop-color='#1e8e3e'></stop><stop offset='1' stop-color='#34a853'
+                ></stop></linearGradient
+              ></defs
+            ><circle cx='24' cy='23.9947' r='12' style='fill:#fff'></circle><path
+              d='M3.2154,36A24,24,0,1,0,12,3.2154,24,24,0,0,0,3.2154,36ZM34.3923,18A12,12,0,1,1,18,13.6077,12,12,0,0,1,34.3923,18Z'
+              style='fill:none'></path><path
+              d='M24,12H44.7812a23.9939,23.9939,0,0,0-41.5639.0029L13.6079,30l.0093-.0024A11.9852,11.9852,0,0,1,24,12Z'
+              style='fill:url(#a)'></path><circle cx='24' cy='24' r='9.5' style='fill:#1a73e8'
+            ></circle><path
+              d='M34.3913,30.0029,24.0007,48A23.994,23.994,0,0,0,44.78,12.0031H23.9989l-.0025.0093A11.985,11.985,0,0,1,34.3913,30.0029Z'
+              style='fill:url(#b)'></path><path
+              d='M13.6086,30.0031,3.218,12.006A23.994,23.994,0,0,0,24.0025,48L34.3931,30.0029l-.0067-.0068a11.9852,11.9852,0,0,1-20.7778.007Z'
+              style='fill:url(#c)'></path></svg
+          >
+          Install Chrome Extension
+        </a>
+
+        <a
+          class='flex items-center px-8 py-3 bg-gray-800 text-white rounded-lg justify-center md:justify-normal'
+          href='https://github.com/mdsaban/github-boost/'
+          target='_blank'
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='28'
+            height='28'
+            fill='#ffffff'
+            viewBox='0 0 256 256'
+            class='mr-2 mb-0.5'
+            ><path
+              d='M216,104v8a56.06,56.06,0,0,1-48.44,55.47A39.8,39.8,0,0,1,176,192v40a8,8,0,0,1-8,8H104a8,8,0,0,1-8-8V216H72a40,40,0,0,1-40-40A24,24,0,0,0,8,152a8,8,0,0,1,0-16,40,40,0,0,1,40,40,24,24,0,0,0,24,24H96v-8a39.8,39.8,0,0,1,8.44-24.53A56.06,56.06,0,0,1,56,112v-8a58.14,58.14,0,0,1,7.69-28.32A59.78,59.78,0,0,1,69.07,28,8,8,0,0,1,76,24a59.75,59.75,0,0,1,48,24h24a59.75,59.75,0,0,1,48-24,8,8,0,0,1,6.93,4,59.74,59.74,0,0,1,5.37,47.68A58,58,0,0,1,216,104Z'
+            ></path></svg
+          >
+          Star/Contribute on Github
+        </a>
+      </div>
+
+      <div class='mt-4'>Install the extension and pin it to browser toolbar.</div>
+
+      <div>
+        <div class='text-2xl font-semibold mt-8 mb-4'>Why I Created This?</div>
+        <ul class='ml-3 !mb-2'>
+          <li>
+            In my previous organisation, reviewing PRs was challenging because I had to manually
+            mark 30-40 static and auto-generated files as viewed.
+          </li>
+          <li>
+            These files inflated the number of line changes, making it hard to see the actual lines
+            left to review.
+          </li>
+          <li>
+            To make my life easier, I wrote JS scripts to interact with the DOM in the browser
+            console.
+          </li>
+        </ul>
+        After sharing this solution with a friend who found it very useful, I decided to develop it into
+        a Chrome extension to make code reviews easier for everyone.
+      </div>
+
+      <div class='bg-gradient-to-r from-sky-500 to-indigo-500 py-10 px-6 rounded-xl mt-6'>
+        <video src={githubBoostVideo} autoplay controls muted class='rounded-xl'></video>
+      </div>
+
+      <div>
+        <div class='text-2xl font-semibold mt-8 mb-4'>Features</div>
+        <ul class='ml-2'>
+          <li>
+            <span class='font-bold'>Dim Viewed Files:</span> Easily distinguish between reviewed and
+            unreviewed files.
+            <Image
+              src={dimFiles}
+              alt='dim files'
+              class='rounded-xl w-full max-w-[500px] mb-4 md:ml-6 ml-2 mt-2'
+            />
+          </li>
+          <li>
+            <span class='font-bold'>Show Remaining Lines of Code:</span> Keep track of how many lines
+            of code are left to review
+            <Image
+              src={remainingLines}
+              alt='remaining lines of code'
+              class='rounded-xl w-full max-w-[500px] mb-4 md:ml-6 ml-2 mt-2'
+            />
+          </li>
+          <li>
+            <span class='font-bold'>Auto View Files:</span> Automatically mark files as viewed based
+            on customizable regex patterns for filenames or directories.
+            <Image
+              src={regex}
+              alt='regex pattern'
+              class='rounded-xl w-full max-w-[500px] mb-4 md:ml-6 ml-2 mt-2'
+            />
+          </li>
+          <li>
+            <span class='font-bold'>Collapse/Uncollapse All Files:</span> Quickly collapse or expand
+            all files in the PR for better navigation.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class='text-2xl font-semibold mt-10 mb-4'>
+          Feature Request, Issue, and Contribution
+        </div>
+        <p>
+          If you have a feature request, find an issue, or want to contribute to the project, please
+          head over to our{' '}
+          <a
+            href='https://github.com/mdsaban/github-boost/'
+            class='text-blue-500 underline'
+            target='_blank'
+          >
+            GitHub repository.
+          </a>
+          You can open an issue to report bugs or suggest new features, and feel free to submit pull
+          requests. Thanks!
+        </p>
+      </div>
+    </section>
   </main>
+  <Footer />
 </Layout>
+
+<script is:inline src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script>
+<script is:inline src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'></script>
+<script>
+  const footerSectionAnim = {
+    from: {
+      transform: 'scale(1)',
+      borderRadius: '0',
+    },
+    to: {
+      ease: 'power2.out',
+      transform: 'scale(0.9)',
+      borderRadius: '0 0 40px 40px',
+      scrollTrigger: {
+        trigger: 'footer',
+        scrub: 0.5,
+        // markers: true,
+      },
+    },
+  }
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+    gsap.registerPlugin(ScrollTrigger)
+    gsap.fromTo(document.querySelector('main'), footerSectionAnim.from, footerSectionAnim.to)
+  })
+</script>
+
+<style lang='scss'>
+  body {
+    overscroll-behavior: none;
+    background-color: #000;
+  }
+  main {
+    background-color: #fff;
+    font-family: 'Inter Variable', serif;
+  }
+  section {
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  ul,
+  li {
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-bottom: 24px;
+  }
+  ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+  }
+  ul ul,
+  ol ul {
+    list-style-type: circle;
+    list-style-position: inside;
+    margin-left: 16px;
+    margin-bottom: initial;
+  }
+  ol ol,
+  ul ol {
+    list-style-type: lower-latin;
+    list-style-position: inside;
+    margin-left: 16px;
+  }
+</style>
