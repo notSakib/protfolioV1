@@ -279,8 +279,8 @@ const ossSection = [
                 <Image src={item.img} inferSize alt={item.alt} />
               </div>
               <div>
-                <h3 class="mb-5 text-2xl font-medium">{item.title}</h3>
-                <p class="mb-5 text-xl" set:html={item.desc}></p>
+                <h3 class="mb-4 text-2xl font-medium">{item.title}</h3>
+                <p class="mb-5 text-lg" set:html={item.desc}></p>
                 {item.isPublished ? (
                   <div class="flex gap-4">
                     <a

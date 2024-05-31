@@ -32,6 +32,7 @@ const linkedInIcon = `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.
 const githubIcon = `<svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" style="color:white;fill: currentColor;">
     <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
 </svg>`
+const instaIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fefbfb" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,72a24,24,0,1,1,24-24A24,24,0,0,1,128,152ZM176,20H80A60.07,60.07,0,0,0,20,80v96a60.07,60.07,0,0,0,60,60h96a60.07,60.07,0,0,0,60-60V80A60.07,60.07,0,0,0,176,20Zm36,156a36,36,0,0,1-36,36H80a36,36,0,0,1-36-36V80A36,36,0,0,1,80,44h96a36,36,0,0,1,36,36ZM196,76a16,16,0,1,1-16-16A16,16,0,0,1,196,76Z"></path></svg>`
 
 const obj = {
   title: 'Md Saban',
@@ -45,10 +46,14 @@ const obj = {
     <section class='max-w-[1200px] md:px-0 px-8'>
       <Header width={1200} />
     </section>
-    <section class='max-w-[1000px] md:px-0 px-8 py-20'>
+    <section class='max-w-[1000px] md:px-0 px-8 py-10 md:py-20'>
       <div class='flex flex-col md:flex-row justify-between gap-8'>
         <div class='md:w-2/5 w-full'>
-          <Image src={heroImg} alt='hero image' class='w-full rounded-xl' />
+          <Image
+            src={heroImg}
+            alt='hero image'
+            class='w-full rounded-xl object-cover h-80 md:h-full'
+          />
         </div>
         <div class='md:w-3/5 w-full md:pl-8'>
           <h1 class='text-4xl font-bold'>What I'm bout.</h1>
@@ -71,23 +76,38 @@ const obj = {
         </div>
       </div>
     </section>
-    <section class='max-w-[1000px] md:px-0 px-8 pt-20 pb-10 flex gap-4'>
-      <div class='w-2/4'>
-        <h3 class='text-4xl font-bold mb-4'>Where can you find me?</h3>
+    <section
+      class='max-w-[1000px] md:px-0 px-8 pt-10 md:pt-20 pb-10 flex flex-col md:flex-row gap-4'
+    >
+      <div class='w-full md:w-2/4'>
+        <h3 class='text-4xl md:text-[44px] font-[520] mb-4'>Where can you find me?</h3>
         <p class='text-lg max-w-lg'>
           I'm currently based in Bengaluru, India. You can catch up with me and stay updated on what
           I'm building and other exciting updates through my social media channels. Let's stay
           connected!"
         </p>
       </div>
-      <div class='w-1/4 gap-4'>
-        <div class='relative rounded-xl'>
-          <Image src={location} alt='googlemap' class='rounded-xl w-full' />
-          <div class='pulsating-circle'></div>
-        </div>
 
-        <div class='bg-black text-white p-8 rounded-xl h-max mt-4'>
-          <div class='mb-4'>
+      <div class='w-full md:w-1/2 flex gap-4'>
+        <div class='w-1/2 gap-4'>
+          <a
+            href='https://maps.app.goo.gl/69ecw7TSGrgsWr4Q8'
+            target='_blank'
+            class='relative rounded-xl'
+          >
+            <Image
+              src={location}
+              alt='googlemap'
+              class='rounded-xl w-full h-[86px] md:h-[104px] object-cover'
+            />
+            <div class='pulsating-circle'></div>
+          </a>
+
+          <a
+            href='https://github.com/mdsaban/'
+            target='_blank'
+            class='block bg-black text-white p-6 md:p-8 rounded-xl h-max mt-4'
+          >
             <div class='flex items-center'>
               <div set:html={githubIcon} class='color-white' />
               <div class='ml-4'>
@@ -95,11 +115,14 @@ const obj = {
                 <div class='text-sm'>@mdsaban</div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
-
-        <div class='bg-gray-200 p-8 rounded-xl h-max mt-4 ml-auto'>
-          <div class='mb-4'>
+        <div class='w-1/2 gap-4'>
+          <a
+            href='https://www.linkedin.com/in/iamsaban/'
+            target='_blank'
+            class='block bg-gray-200 p-6 md:p-8 rounded-xl h-max ml-auto'
+          >
             <div class='flex items-center'>
               <div set:html={linkedInIcon} class='color-white w-8' />
               <div class='ml-4'>
@@ -107,80 +130,70 @@ const obj = {
                 <div class='text-sm'>@mdsaban</div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class='w-1/4 gap-4'>
-        <div class='bg-gray-200 p-8 rounded-xl h-max'>
-          <div class='flex justify-between mb-4'>
+          </a>
+
+          <a
+            href='https://instagram.com/iamsaban'
+            target='_blank'
+            class='block bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white p-6 md:p-8 rounded-xl h-max mt-4 ml-auto'
+          >
             <div class='flex items-center'>
-              <Image
-                src='https://pbs.twimg.com/profile_images/1584430322829381633/WONnrPV6_400x400.jpg'
-                alt='profile'
-                inferSize
-                class='rounded-full h-full w-10'
-              />
+              <div set:html={instaIcon} class='color-white w-8' />
               <div class='ml-4'>
                 <div class='text-lg leading-none font-semibold'>Saban</div>
                 <div class='text-sm'>@iamsaban</div>
               </div>
             </div>
-            <Image
-              src='https://abs.twimg.com/favicons/twitter.3.ico'
-              inferSize
-              alt='twitter'
-              class='h-full rounded-lg border-4 border-black'
-            />
-          </div>
-          <div class='mb-6 text-xl'>
-            Some random tweet that I posted here and few likes and comments all? SO let's go with
-            this
-          </div>
-          <div class='rounded-full border-gray-300 border text-center font-semibold text-sm py-2'>
-            FOLLOW
-          </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class='max-w-[1000px] md:px-0 px-8 py-20'>
-      <div class='text-lg font-semibold'>When I'm not coding</div>
-      <h3 class='text-4xl font-bold mb-4'>I shoot, create & edit</h3>
+    <section class='max-w-[1000px] md:px-0 px-8 py-10 md:py-20'>
+      <!-- <div class='text-lg font-semibold'>When I'm not coding</div> -->
+      <h3 class='text-4xl md:text-[44px] font-[520] tracking-tight mb-4'>
+        I create, curate & edit
+      </h3>
       <div class='text-lg max-w-lg'>
         When I'm not coding, I'm busy creating and editing fun content! Join me in exploring new
         adventures and sharing stories through videos. Follow me on Instagram for real-time updates
         and behind-the-scenes fun!
       </div>
-      <div class='flex flex-wrap gap-6 mt-8'>
-        <div>
+      <div class='flex gap-6 mt-8'>
+        <div class='w-3/5 md:w-2/5'>
           <video
             src={sabanVideo}
             autoplay
             muted
             loop
-            class='h-[320px] w-[400px] object-cover rounded-xl'></video>
+            class='h-[160px] md:h-[320px] md:w-[400px] object-cover rounded-xl'></video>
         </div>
-        <div>
-          <Image src={workspaceSetup} alt='hero image' class='w-[250px] rounded-xl' />
+        <div class='w-3/5'>
+          <Image
+            src={workspaceSetup}
+            alt='hero image'
+            class='w-full md:h-[320px] object-cover rounded-xl'
+          />
         </div>
       </div>
     </section>
-    <section class='max-w-[1000px] md:px-0 px-8 py-20'>
-      <div class='text-lg font-semibold'>When I'm not on screen</div>
-      <h3 class='text-4xl font-bold mb-4'>I challenge my physical health</h3>
+    <section class='max-w-[1000px] md:px-0 px-8 py-10 md:py-20'>
+      <!-- <div class='text-lg font-semibold'>When I'm not on screen</div> -->
+      <h3 class='text-4xl md:text-[44px] font-[520] tracking-tigh mb-4'>
+        Fall seven times, stand up eight
+      </h3>
       <p class='text-lg max-w-lg'>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, a impedit veritatis
-        laudantium velit corporis architecto magnam repellendus voluptate suscipit sit eos ipsum
-        vitae ut nesciunt, sunt, itaque beatae porro!
+        Outside work, you will catch me hitting the road for 5-10km runs, splashing in the pool, or
+        going all-in over competitive board and card games.
       </p>
-      <div class='md:columns-3 gap-4 mt-8'>
+      <div class='columns-2 md:columns-3 gap-4 mt-8'>
         <Image src={sabanSkating} alt='hero image' class='rounded-xl mb-4' />
         <video
           src={sabanRunning}
           autoplay
           muted
           loop
-          class='rounded-xl mb-4 w-full object-cover object-center h-[500px]'></video>
+          class='rounded-xl mb-4 w-full object-cover object-center h-[250px] md:h-[500px]'></video>
         <Image src={sabanSwimming} alt='hero image' class='rounded-xl mb-4' />
         <div
           class='strava-embed-placeholder'
@@ -195,13 +208,15 @@ const obj = {
       </div>
     </section>
 
-    <section class='max-w-[1000px] md:px-0 px-8 py-20'>
-      <div class='text-lg font-semibold'>Outisde work</div>
-      <h3 class='text-4xl font-bold mb-4'>All about food, adventure & travel</h3>
+    <section class='max-w-[1000px] md:px-0 px-8 py-10 md:py-20'>
+      <!-- <div class='text-lg font-semibold'>Outisde work</div> -->
+      <h3 class='text-4xl md:text-[44px] font-[520] tracking-tigh mb-4'>
+        Wander often, wonder always
+      </h3>
       <p class='text-lg max-w-lg'>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, a impedit veritatis
-        laudantium velit corporis architecto magnam repellendus voluptate suscipit sit eos ipsum
-        vitae ut nesciunt, sunt, itaque beatae porro!
+        I love extreme thrills like climbing huge cliffs, soaring through the sky paragliding, and
+        the rush of go kart racing. But I don't just seek adventure - I also really enjoy trying
+        different delicious foods wherever I wander.
       </p>
       <div class='md:columns-4 columns-2 gap-4 mt-8'>
         <Image
@@ -432,6 +447,7 @@ const obj = {
       window.__STRAVA_EMBED_BOOTSTRAP__ ||
         ((r = function () {
           var e = ['route']
+          if (window.screen.width < 768) return
           document.querySelectorAll('.strava-embed-placeholder').forEach(function (n) {
             var r,
               a,
@@ -527,7 +543,7 @@ const obj = {
       scrollTrigger: {
         trigger: 'footer',
         scrub: 0.5,
-        markers: true,
+        // markers: true,
       },
     },
   }
