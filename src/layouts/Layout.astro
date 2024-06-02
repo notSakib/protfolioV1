@@ -1,41 +1,34 @@
 ---
-import '@fontsource/uncut-sans/400.css'
-import '@fontsource/uncut-sans/500.css'
-import '@fontsource/uncut-sans/600.css'
-import '@fontsource/uncut-sans/700.css'
+import '@fontsource/uncut-sans/400.css';
+import '@fontsource/uncut-sans/500.css';
+import '@fontsource/uncut-sans/600.css';
+import '@fontsource/uncut-sans/700.css';
 
-const defaultImage = '/src/images/placeholder-1.jpeg'
+const defaultImage = "/src/images/placeholder-1.jpeg";
 
-import Header from '@/components/Header.astro'
+import Header from "@/components/Header.astro";
 
-const { postDetails } = Astro.props
-const { title, description } = postDetails
+const { postDetails } = Astro.props;
+const {title, description} = postDetails;
 ---
 
 <!doctype html>
-<html lang='en'>
-  <meta charset='UTF-8' />
-  <meta name='description' content={description} />
-  <meta name='viewport' content='width=device-width' />
-  <meta name='generator' content={Astro.generator} />
-  <link rel='icon' type='image' href='/favicon.ico' />
-  <title>{title}</title>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image" href="/favicon.ico" />
+    <title>{title}</title>
+  </head>
   <body>
     <slot />
-  </body><style>
-    html {
-      font-family: 'Uncut Sans', sans-serif;
-    }
-  </style>
+  </body>
 </html>
 
-<!-- 100% privacy-first analytics -->
-<script async defer src='https://scripts.simpleanalyticscdn.com/latest.js'></script>
-<noscript
-  ><img
-    src='https://queue.simpleanalyticscdn.com/noscript.gif'
-    alt=''
-    referrerpolicy='no-referrer-when-downgrade'
-  /></noscript
->
+<style>
+  html {
+    font-family: 'Uncut Sans', sans-serif;
+  }
+</style>
