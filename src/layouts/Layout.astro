@@ -4,12 +4,12 @@ import '@fontsource/uncut-sans/500.css'
 import '@fontsource/uncut-sans/600.css'
 import '@fontsource/uncut-sans/700.css'
 
-const defaultImage = '/src/images/placeholder-1.jpeg'
-
 import Header from '@/components/Header.astro'
 
 const { postDetails } = Astro.props
-const { title, description } = postDetails
+const { title, description, metaImg } = postDetails
+const images = import.meta.glob('/src/images/homepage/*.{jpeg,jpg,png,gif}')
+const imageSrc = metaImg ? await images[metaImg]() : ''
 ---
 
 <!doctype html>
@@ -18,12 +18,15 @@ const { title, description } = postDetails
   <meta name='description' content={description} />
   <meta name='viewport' content='width=device-width' />
   <meta name='generator' content={Astro.generator} />
+  <meta property='og:title' content={title} />
+  {imageSrc && <meta property='og:image' content={imageSrc.default.src} />}
   <link rel='icon' type='image' href='/favicon.ico' />
   <title>{title}</title>
 
   <body>
     <slot />
-  </body><style>
+  </body>
+  <style>
     html {
       font-family: 'Uncut Sans', sans-serif;
     }
