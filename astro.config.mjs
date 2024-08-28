@@ -8,7 +8,7 @@ import vue from '@astrojs/vue'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://mdsaban.com',
+  site: 'https://notsakib.me',
   markdown: {
     // Can be 'shiki' (default), 'prism' or false to disable highlighting
     // syntaxHighlight: 'prism'
