@@ -37,86 +37,18 @@ import { getCollection } from 'astro:content'
 const blogEntries = await getCollection('posts')
 
 const obj = {
-  title: 'Md Saban',
+  title: 'Sakib Khan',
   descritipon:
     "I'm a web developer based out of Bengaluru, India, seamlessly blending my love for aesthetics with my knack for problem-solving.",
 }
 
 const projects = [
   {
-    img: wise,
-    alt: 'Wise',
-    website: 'https://wise.live',
-    desc: "<a href='https://wise.live' target='_blank' class='text-purple-600 underline underline-offset-4'>Wise App</a> is a one stop solution for online teaching. Conduct live courses and sell recorded content. Manage your earnings, students & teachers all in one place.",
-    tags: ['Zero to one', 'Front end'],
-  },
-  {
     img: xcreen,
     alt: 'Xcreen',
     desc: "<a href='https://xcreen.live' target='_blank' class='text-green-600 underline underline-offset-4'>Xcreen</a> is a chrome extension automates the process, enabling you to produce exceptional screen recordings effortlessly.",
-    tags: ['Zero to one', 'Frontend', 'Backend'],
+    tags: ['Zero to one', 'Frontend'],
     isUnderConstruction: true,
-  },
-  {
-    img: webManagr,
-    alt: 'WebManagr',
-    website: 'https://webmanagr.com',
-    desc: "<a href='https://webmanagr.com' target='_blank' class='text-red-600 underline underline-offset-4'>WebManagr</a> helps you to manage expenses, projects, website expiry for your website and, much more in an automated way.",
-    tags: ['Zero to one', 'Front end'],
-  },
-  {
-    img: lens,
-    alt: 'Lens',
-    website: 'https://getlens.io',
-    desc: "<a href='https://getlens.io' target='_blank' class='text-purple-600 underline underline-offset-4'>Lens</a> turns your Zoom sessions into engaging learning experiences. It measures participant attentiveness, allows interactive quizzes, and gamifies learning with leaderboards.",
-    tags: ['MVP', 'Front end'],
-  },
-  {
-    img: panya,
-    alt: 'Panya',
-    desc: "<span class='text-orange-600 underline underline-offset-4'>Panya</span> is a program which makes remembering things easy using flashcards.",
-    tags: ['Zero to one', 'Front end', 'Ideation'],
-  },
-  // {
-  //   img: lens,
-  //   alt: "Lens",
-  //   desc: "<span class='text-green-600 underline underline-offset-4'>Xcreen</span> is a chrome extension automates the process, enabling you to produce exceptional screen recordings effortlessly.",
-  //   tags: ["Zero to one", "Frontend", "Backend"],
-  // 	isUnderConstruction: true,
-  // },
-]
-
-const ossSection = [
-  {
-    img: github,
-    alt: 'Github review plugin',
-    title: 'Github Review Extension',
-    desc: 'Simplify your GitHub code reviews! <br/> Track reviewed files, manage your review progress, and enhance your productivity with intuitive features like auto-viewing files and collapsing all files with a single click.',
-    tags: ['Browser extension'],
-    demo: '/packages/github-boost/',
-    github: 'https://github.com/mdsaban/github-boost',
-    isPublished: true,
-    primaryBtnText: 'Docs',
-  },
-  {
-    img: tabs,
-    alt: 'Tabs component',
-    title: 'Vue Tabs component',
-    desc: 'A lightweight and highly customizable Vue 3 component for creating tabbed interfaces with ease. Easy to render tabs, handling tab switching, and managing tab content.',
-    tags: ['Vue3', 'Component'],
-    demo: '/packages/super-vue3-tabs-component/demo/',
-    github: 'https://github.com/mdsaban/super-vue3-tabs',
-    isPublished: true,
-  },
-  {
-    img: chatComponent,
-    alt: 'Chat component',
-    title: 'React advanced chat component',
-    desc: ' (🔨 Work in progress) A component offering a polished chat interface with real-time messaging, media file sharing, and read receipts.',
-    tags: ['React', 'Component'],
-    demo: '',
-    github: '',
-    isPublished: false,
   },
 ]
 ---
@@ -135,11 +67,11 @@ const ossSection = [
           <div class='flex flex-col items-center text-center'>
             <Image src={heroImg} inferSize alt='Hero' class='mt-16 mb-10 section-img' />
             <h1 class='text-4xl font-semibold tracking-[-0.04em] !leading-[1.2] md:text-7xl'>
-              Hi, I am Saban <span class='animate-hand'>👋</span>
+              Hi, I am Sakib <span class='animate-hand'>👋</span>
               <br /> A Software Tinkerer
             </h1>
             <div class='mt-6 max-w-[600px] text-lg font-light'>
-              I'm a web developer based out of Bengaluru, India, seamlessly blending my love for
+              I'm a web developer based out of Gurugram, India, seamlessly blending my love for
               aesthetics with my knack for problem-solving.
             </div>
             <div
@@ -163,7 +95,7 @@ const ossSection = [
                       d='M228.44,89.34l-96-64a8,8,0,0,0-8.88,0l-96,64A8,8,0,0,0,24,96V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V96A8,8,0,0,0,228.44,89.34ZM128,41.61l81.91,54.61-67,47.78H113.11l-67-47.78ZM40,200V111.53l65.9,47a8,8,0,0,0,4.65,1.49h34.9a8,8,0,0,0,4.65-1.49l65.9-47V200Z'
                     ></path></svg
                   >
-                  contact@mdsaban.com
+                  contact@notsakib.com
                 </div>
                 <div
                   id='copy'
@@ -197,36 +129,6 @@ const ossSection = [
                   >
                   <span>Copied</span>
                 </div>
-              </div>
-            </div>
-            <div class='flex flex-wrap items-center gap-5 md:gap-10 mt-28 opacity-70'>
-              <div>
-                <Image
-                  src={atlanLogo}
-                  inferSize
-                  alt='wise logo'
-                  class='md:h-[26px] h-[22px] md:-mt-1 w-fit'
-                />
-              </div>
-              <div>
-                <Image
-                  src={wiseLogo}
-                  inferSize
-                  alt='wise logo'
-                  class='md:h-[22px] h-[20px] md:mt-2 mt-1 w-fit'
-                />
-              </div>
-              <div>
-                <Image src={dukaan} inferSize alt='atlan logo' class='md:h-[32px] h-[22px] w-fit' />
-              </div>
-              <div class='items-center hidden md:flex'>
-                <Image
-                  src={serverAvatar}
-                  inferSize
-                  alt='server avatar logo'
-                  class='md:h-[32px] w-fit'
-                />
-                <div class='ml-2 text-2xl font-bold'>ServerAvatar</div>
               </div>
             </div>
           </div>
@@ -268,116 +170,6 @@ const ossSection = [
         }
       </div>
     </section>
-
-    <section class='py-20 max-w-[960px] md:px-0 px-8'>
-      <Image src={oss} inferSize alt='Projects' class='mx-auto mb-6 section-img' />
-      <h2 class='text-5xl font-semibold leading-snug text-center'>Open source contributions</h2>
-
-      {
-        ossSection.map((item) => {
-          return (
-            <div class='grid md:grid-cols-[4fr_5fr] md:gap-16 gap-4 mt-20'>
-              <div>
-                <Image src={item.img} inferSize alt={item.alt} />
-              </div>
-              <div>
-                <h3 class='mb-2 text-2xl font-medium'>{item.title}</h3>
-                <p class='mb-5 text-lg' set:html={item.desc} />
-                {item.isPublished ? (
-                  <div class='flex gap-4'>
-                    <a
-                      class='flex items-center py-3 border rounded-xl px-7 w-max text-base hover:shadow-lg hover:-translate-y-0.5 transition-all'
-                      href={item.demo}
-                    >
-                      <div set:html={demoIcon} />
-                      <div class='ml-2'>{item.primaryBtnText || 'Demo'}</div>
-                    </a>
-                    <a
-                      class='flex items-center py-3 text-base text-white bg-black border items center rounded-xl px-7 w-max hover:shadow-lg hover:-translate-y-0.5 transition-all'
-                      href={item.github}
-                      target='_blank'
-                    >
-                      <div set:html={githubIcon} />
-                      <div class='ml-2'>Github</div>
-                    </a>
-                  </div>
-                ) : (
-                  <button class='flex items-center py-3 text-lg text-white bg-gray-500 border cursor-default rounded-xl px-7'>
-                    <div set:html={githubIcon} />
-                    <div class='ml-2'>Committing soon..</div>
-                  </button>
-                )}
-              </div>
-            </div>
-          )
-        })
-      }
-    </section>
-
-    <!--   
-    <section class="py-20 max-w-[960px] md:px-0 px-8">
-      <Image
-        src={reviews}
-        inferSize
-        alt="Projects"
-        class="mx-auto mb-6 section-img"
-      />
-      <h2 class="text-5xl font-semibold leading-snug text-center">
-        What people say about me
-      </h2>
-
-      <div class="grid md:grid-cols-[1fr_1fr] md:gap-16 gap-4 mt-20">
-
-        <div class="rounded-lg p-4 bg-gray-200">
-          <p>
-            Saban is a highly skilled frontend developer with a team-first attitude. His commitment to delivering exceptional work and collaborating seamlessly made him an invaluable asset. 
-          </p>
-          <p class="mt-2">
-            Working with Saban was an absolute pleasure, and his contributions were instrumental to the project's success.
-          </p>
-          <div class="text-lg font-semibold mt-2 text-right">Sumit Kumar</div>
-        </div>
-
-        <div class="rounded-lg p-4 bg-gray-200 h-max">
-          <p>
-            Saban is a highly skilled frontend developer with a team-first attitude. His commitment to delivering exceptional work and collaborating seamlessly made him an invaluable asset. 
-          </p>
-          <div class="text-lg font-semibold mt-2 text-right">Random John</div>
-        </div>
-
-      </div>
-    </section> -->
-
-    <!-- <section
-      class="blogs py-20 max-w-[960px] flex md:flex-row flex-col justify-between md:px-0 px-8"
-    >
-      <div class="flex flex-col-reverse items-center md:w-1/3 md:block">
-        <h2 class="text-5xl font-semibold leading-snug">My Blogs</h2>
-        <Image
-          src={reading}
-          inferSize
-          alt="Projects"
-          class="md:mt-6 section-img"
-        />
-      </div>
-      <div class="mt-8 md:mt-0">
-        {
-          blogEntries.map((item) => {
-            const slug = `/posts/${item.slug}`;
-            return (
-              item.slug !== "dummy" && (
-                <a
-                  href={slug}
-                  class="flex items-center justify-between py-4 border-b md:py-8 first:pt-0"
-                >
-                  <div class="text-2xl font-medium">{item.data.title}</div>
-                </a>
-              )
-            );
-          })
-        }
-      </div>
-    </section> -->
   </main>
   <Footer />
 </Layout>
@@ -437,7 +229,7 @@ const ossSection = [
     elem.style.top = `-${56 * 2}px`
     const email = document.querySelector('#hero-email #email')
 
-    navigator.clipboard.writeText('contact@mdsaban.com').then(() => {
+    navigator.clipboard.writeText('contact@notsakib.com').then(() => {
       window.copyTimeout = setTimeout(() => {
         elem.style.top = '-56px'
         email.style.opacity = '1'
