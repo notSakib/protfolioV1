@@ -1,5 +1,7 @@
 {
-  "name": "saban",
+  "name": "Sakib",
+  "homepage": "https://notsakib.github.io/protfolioV1",
+
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,7 +9,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@astrojs/mdx": "^2.1.1",
